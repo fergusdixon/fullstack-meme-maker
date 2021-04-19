@@ -3,13 +3,14 @@ from typing import Any, List
 from fastapi import APIRouter
 
 from app import schemas
+from app.core.config import base_images
 
 router = APIRouter()
 
 
-@router.get("/images", response_model=List[schemas.Image])
-async def get_image_list() -> Any:
+@router.get("", response_model=List[schemas.Image])
+def get_image_list() -> Any:
     """
-    Gets the logged in user's transactions
+    Gets the list of images to generate memes from
     """
-    return [{"path": "/test"}]
+    return list(base_images.values())
