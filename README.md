@@ -18,7 +18,7 @@ docker-compose up
 Basic FastAPI (Py3.8) backend for creating memes
 
 Available at localhost:8888 (OpenAPI docs at localhost:8888/docs)
-
+The container has a volume set up so code changes locally will reflect in the container and be reloaded
 
 Either work in the docker container
 
@@ -69,14 +69,21 @@ Or from the root of the repo
 docker-compose exec meme-api ./scripts/test.sh
 ```
 
-#### Tests
-TODO
 
 ### meme-react-frontend
 
 React Frontend for creating memes
 
-Available at localhost:8080
+Available at localhost:8080 using docker-compose
+For development it is recommended to use the npm script to get autoreload
+
+From the meme-react-frontend directory:
+
+```shell
+yarn run start
+```
+
+Access on localhost:3000
 
 #### Tests
 TODO
