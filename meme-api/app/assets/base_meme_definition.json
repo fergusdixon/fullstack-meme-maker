@@ -1,0 +1,19 @@
+{
+  "9f483da6-63d6-4370-b70c-04a59faa208d": {
+    "uuid": "9f483da6-63d6-4370-b70c-04a59faa208d",
+    "name": "Logo",
+    "thumbnail_path": "/api/static/thumbnails/logo512.png",
+    "enabled": true,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 0,
+        "width": 1,
+        "height": 1,
+        "distance_to_left": 1,
+        "distance_to_right": 1,
+        "rotation": 1
+      }
+    ]
+  }
+}
