@@ -2,7 +2,6 @@
   "9f483da6-63d6-4370-b70c-04a59faa208d": {
     "uuid": "9f483da6-63d6-4370-b70c-04a59faa208d",
     "name": "Logo",
-    "thumbnail_path": "/api/static/thumbnails/logo512.png",
     "enabled": true,
     "text_fields": [
       {
