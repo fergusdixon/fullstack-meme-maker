@@ -42,7 +42,7 @@ export function Memes() {
         )
     }
     return (
-        <div>
+        <div style={{padding: "60px"}}>
             <div className={styles.row}>
                 <MemeThumbnails/>
             </div>
