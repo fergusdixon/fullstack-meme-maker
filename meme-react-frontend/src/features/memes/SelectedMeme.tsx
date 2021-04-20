@@ -8,22 +8,28 @@ import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         memeContainer: {
-            maxWidth: '90%',
-            width: '90%',
+            maxWidth: '100%',
+            width: '100%',
             height: 'auto',
             paddingLeft: '20px',
             paddingRight: '20px',
         },
+        outerWrapper: {
+            position: "relative",
+            width: "50%"
+        },
         shadowedText: {
             position: "absolute",
             fontWeight: "bold",
-            textShadow: "1px 1px 3px black",
+            textShadow: "2px 2px 3px black",
             color: 'white',
             textTransform: 'uppercase',
+            wordWrap: "normal",
         },
         normalText: {
             position: "absolute",
-            fontWeight: "normal"
+            fontWeight: "normal",
+            wordWrap: "normal",
         }
     }),
 );
@@ -35,16 +41,18 @@ export function SelectedMeme() {
 
     if (meme) {
         return (
-            <div style={{position: "relative", width: "50%"}}>
+            <div className={classes.outerWrapper}>
                 <img className={classes.memeContainer} src={config.API_URL + meme.high_res_path} alt={meme.name}/>
                 {meme.text_fields.map((textField) => (
                     <div key={textField.order + meme.uuid}
-                        className={textField.text_style === "shadowed" ? classes.shadowedText : classes.normalText}
+                         className={textField.text_style === "shadowed" ? classes.shadowedText : classes.normalText}
                          style={
                              {
-                                 right: `${(1 - textField.distance_to_left) * 100}%`,
-                                 top: `${(1 - textField.distance_to_bottom) * 100}%`,
-                                 transform: `rotate(${360 * textField.rotation}deg)`
+                                 left: `${(textField.distance_to_left) * 100}%`,
+                                 top: `${(1-textField.distance_to_bottom) * 100}%`,
+                                 transform: `rotate(${360 * textField.rotation}deg)`,
+                                 maxWidth: `${textField.width * 100}%`,
+                                 maxHeight: `${textField.width * 100}%`
                              }
                          }>
                         {textField.value}
