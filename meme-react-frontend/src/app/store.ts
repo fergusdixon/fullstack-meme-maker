@@ -1,10 +1,8 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import memesReducer from '../features/memes/memesSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     memes: memesReducer,
   },
 });
