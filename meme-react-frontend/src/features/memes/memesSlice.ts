@@ -31,12 +31,13 @@ export interface MemesState {
     baseMemes: IMeme[];
     status: 'idle' | 'loading' | 'failed';
     selectedMemeIndex: number;
+    error?: unknown;
 }
 
 const initialState: MemesState = {
     baseMemes: [],
     status: 'idle',
-    selectedMemeIndex: 0
+    selectedMemeIndex: 0,
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -86,6 +87,10 @@ export const memesSlice = createSlice({
             .addCase(fetchMemesFromAPI.fulfilled, (state, action) => {
                 state.status = 'idle';
                 state.baseMemes = action.payload;
+            })
+            .addCase(fetchMemesFromAPI.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message
             });
     },
 });
@@ -94,5 +99,7 @@ export const {chooseMeme, updateTextFieldValue} = memesSlice.actions;
 
 export const selectMemes = (state: RootState) => state.memes.baseMemes;
 export const selectChosenMeme = (state: RootState) => state.memes.baseMemes[state.memes.selectedMemeIndex];
+export const selectMemeStatus = (state: RootState) => state.memes.status;
+export const selectMemeError = (state: RootState) => state.memes.error;
 
 export default memesSlice.reducer;

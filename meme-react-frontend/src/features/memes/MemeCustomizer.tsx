@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             width: '50%',
+            maxWidth: "700px",
             '& > *': {
                 margin: theme.spacing(1),
                 width: '25ch',

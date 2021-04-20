@@ -40,7 +40,7 @@ export function MemeThumbnails() {
         <div className={classes.root}>
             <GridList
                 className={classes.gridList}
-                cols={3.25}>
+                cols={4.3}>
                 {memes.map((meme, index) => (
                     <GridListTile
                         key={index}

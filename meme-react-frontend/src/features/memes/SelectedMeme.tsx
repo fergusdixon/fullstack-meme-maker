@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         outerWrapper: {
             position: "relative",
-            width: "50%"
+            width: "50%",
+            maxWidth: "700px",
         },
         shadowedText: {
             position: "absolute",
@@ -24,12 +25,12 @@ const useStyles = makeStyles((theme: Theme) =>
             textShadow: "2px 2px 3px black",
             color: 'white',
             textTransform: 'uppercase',
-            wordWrap: "normal",
+            wordWrap: "break-word",
         },
         normalText: {
             position: "absolute",
             fontWeight: "normal",
-            wordWrap: "normal",
+            wordWrap: "break-word",
         }
     }),
 );
