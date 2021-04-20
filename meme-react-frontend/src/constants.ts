@@ -1,0 +1,11 @@
+// Constants
+// This would need to be more reactive to environment variables so different settings can be changed during deploy
+const prod = {
+    API_URL: "",
+};
+
+const dev = {
+    API_URL: "http://localhost:8888"
+};
+
+export const config = process.env.NODE_ENV === "development" ? dev : prod;

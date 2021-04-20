@@ -1,7 +1,71 @@
 {
   "9f483da6-63d6-4370-b70c-04a59faa208d": {
     "uuid": "9f483da6-63d6-4370-b70c-04a59faa208d",
-    "name": "Logo",
+    "name": "Distracted Boyfriend",
+    "enabled": true,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 0,
+        "width": 1,
+        "height": 1,
+        "distance_to_left": 1,
+        "distance_to_right": 1,
+        "rotation": 1
+      }
+    ]
+  },
+  "0ee29ee6-a09a-4b65-b0f2-bd37395b8a4e": {
+    "uuid": "0ee29ee6-a09a-4b65-b0f2-bd37395b8a4e",
+    "name": "Drake",
+    "enabled": true,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 0,
+        "width": 1,
+        "height": 1,
+        "distance_to_left": 1,
+        "distance_to_right": 1,
+        "rotation": 1
+      }
+    ]
+  },
+  "0b1b9dc6-4ca4-4045-a113-f3ab83707ee3": {
+    "uuid": "0b1b9dc6-4ca4-4045-a113-f3ab83707ee3",
+    "name": "Batman Slapping Robin",
+    "enabled": true,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 0,
+        "width": 1,
+        "height": 1,
+        "distance_to_left": 1,
+        "distance_to_right": 1,
+        "rotation": 1
+      }
+    ]
+  },
+  "880528c7-52bf-4d08-b902-348bc23a9933": {
+    "uuid": "880528c7-52bf-4d08-b902-348bc23a9933",
+    "name": "Gru's Plan",
+    "enabled": true,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 0,
+        "width": 1,
+        "height": 1,
+        "distance_to_left": 1,
+        "distance_to_right": 1,
+        "rotation": 1
+      }
+    ]
+  },
+  "52ca0b49-d9eb-45e6-81d5-a06d4214fbfa": {
+    "uuid": "52ca0b49-d9eb-45e6-81d5-a06d4214fbfa",
+    "name": "Expanding Brain",
     "enabled": true,
     "text_fields": [
       {
