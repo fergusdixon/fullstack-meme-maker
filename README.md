@@ -86,4 +86,16 @@ yarn run start
 Access on localhost:3000
 
 #### Tests
-TODO
+Uses Jest
+
+Can run a handy TDD buddy with:
+
+```shell
+yarn test
+```
+
+Or get coverage as well with:
+
+```shell
+yarn test --coverage --watchAll
+```
