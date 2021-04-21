@@ -6,7 +6,11 @@ from pydantic import AnyHttpUrl, BaseSettings, validator
 
 class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
-    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = ["http://localhost", "http://localhost:3000", "http://fulls-loadb-16qur6ndc2l03-1254964837.eu-west-2.elb.amazonaws.com"]
+    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = [
+        "http://localhost",
+        "http://localhost:3000",
+        "http://fulls-loadb-16qur6ndc2l03-1254964837.eu-west-2.elb.amazonaws.com",
+    ]
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)
     def assemble_cors_origins(cls, v: Union[str, List[str]]) -> Union[List[str], str]:
