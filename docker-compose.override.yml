@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  meme-api:
+    volumes:
+      - ./meme-api:/app
+    command: /start-reload.sh

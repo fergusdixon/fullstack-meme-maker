@@ -2,10 +2,40 @@
 
 An example of a fullstack React & FastAPI application for generating memes
 
+Some links:
+
+The React frontend:
+
+http://fulls-LoadB-16QUR6NDC2L03-1254964837.eu-west-2.elb.amazonaws.com
+
+The API docs:
+
+http://fulls-LoadB-16QUR6NDC2L03-1254964837.eu-west-2.elb.amazonaws.com:8080/docs
+
+## Deploy
+
+Uses [ECS integration](https://docs.docker.com/cloud/ecs-integration/) with docker compose, 
+so ensure you have a docker context linked to your AWS account:
+
+```shell
+docker context create ecs meme-maker
+```
+
+Follow the prompts to link credentials
+
+```shell
+docker --context meme-maker compose up
+```
+
+Will create each service on AWS Fargate, with a loadbalancer pointing to the fronted on HTTP port `80` and the
+API on port `8080`
+
 
 ## Quickstart (to develop)
 
-Relies on [docker-compose](https://docs.docker.com/compose/)
+Relies on the old version of [docker-compose](https://docs.docker.com/compose/) unlike the deploy
+This is to take advantage of `docker-compose.override.yml` to make local dev quicker, like code reloading
+
 
 ```shell
 docker-compose build
@@ -17,7 +47,7 @@ docker-compose up
 
 Basic FastAPI (Py3.8) backend for creating memes
 
-Available at localhost:8888 (OpenAPI docs at localhost:8888/docs)
+Available at localhost:8080 (OpenAPI docs at localhost:8080/docs)
 The container has a volume set up so code changes locally will reflect in the container and be reloaded
 
 Either work in the docker container
@@ -74,7 +104,7 @@ docker-compose exec meme-api ./scripts/test.sh
 
 React Frontend for creating memes
 
-Available at localhost:8080 using docker-compose
+Available at http://localhost when using docker-compose
 For development it is recommended to use the npm script to get autoreload
 
 From the meme-react-frontend directory:

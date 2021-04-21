@@ -2,6 +2,8 @@ version: "3.8"
 services:
   meme-api:
     image: 'ghcr.io/fergusdixon/${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
+    environment:
+      - PORT=8080
     env_file:
       - .env
     build:
@@ -9,16 +11,24 @@ services:
       args:
         INSTALL_DEV: ${INSTALL_DEV-true}
     ports:
-      - "8888:80"
-    volumes:
-      - ./meme-api:/app
-    command: /start-reload.sh
+      - target: 8080
+        published: 8080
+        protocol: tcp
+        x-aws-protocol: http
 
   meme-react-frontend:
     image: 'ghcr.io/fergusdixon/${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}'
     ports:
-      - "8080:80"
+      - 80:80
     depends_on:
       - meme-api
     build:
       context: ./meme-react-frontend
+
+x-aws-cloudformation:
+  Resources:
+    MemeapiTCP8080TargetGroup:
+      Properties:
+        HealthCheckPath: /api/v1/memes
+        Matcher:
+          HttpCode: 200
