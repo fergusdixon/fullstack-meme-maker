@@ -7,3 +7,6 @@ services:
     build:
       args:
         INSTALL_DEV: ${INSTALL_DEV-true}
+  mongodb:
+    ports:
+      - 27017:27017

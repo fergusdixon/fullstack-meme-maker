@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from .text_field import TextField
 
 
-class Image(BaseModel):
+class Meme(BaseModel):
     uuid: UUID
     name: str
     enabled: bool
