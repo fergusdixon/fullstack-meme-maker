@@ -129,3 +129,8 @@ Or get coverage as well with:
 ```shell
 yarn test --coverage --watchAll
 ```
+
+
+#### Monitoring
+
+Uses a manually created Cloudwatch dashboard with alarams for monitoring:
