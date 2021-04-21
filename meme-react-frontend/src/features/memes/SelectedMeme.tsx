@@ -4,6 +4,7 @@ import {useAppSelector} from '../../app/hooks';
 import {selectChosenMeme} from './memesSlice';
 import {config} from "../../constants";
 import styles from './Memes.module.css';
+import Image from 'material-ui-image';
 
 export function SelectedMeme() {
     const meme = useAppSelector(selectChosenMeme);
@@ -11,7 +12,7 @@ export function SelectedMeme() {
     if (meme) {
         return (
             <div className={styles.outerwrapper}>
-                <img className={styles.memecontainer} src={config.API_URL + meme.high_res_path} alt={meme.name}/>
+                <Image src={config.API_URL + meme.high_res_path} cover={true} imageStyle={{height: "auto"}}/>
                 {meme.text_fields.map((textField) => (
                     <div key={textField.order + meme.uuid}
                          className={textField.text_style === "shadowed" ? styles.shadowedtext : styles.normaltext}
