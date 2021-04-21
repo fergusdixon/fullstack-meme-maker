@@ -48,7 +48,9 @@ docker-compose up
 Basic FastAPI (Py3.8) backend for creating memes
 
 Available at localhost:8080 (OpenAPI docs at localhost:8080/docs)
-The container has a volume set up so code changes locally will reflect in the container and be reloaded
+The container has a volume set up so code changes locally will reflect in the container and be reloaded.
+
+It retrieves memes from a simple MongoDB instance, the first time it starts it will populate some dummy data.
 
 Either work in the docker container
 
