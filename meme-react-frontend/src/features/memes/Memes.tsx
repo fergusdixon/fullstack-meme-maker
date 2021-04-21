@@ -1,68 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  incrementIfOdd,
-  selectCount,
-} from './memesSlice';
+import {MemeThumbnails} from "./MemeThumbnails";
+import {SelectedMeme} from "./SelectedMeme";
 import styles from './Memes.module.css';
+import {MemeCustomizer} from "./MemeCustomizer";
+import {useAppSelector} from "../../app/hooks";
+import {selectMemeError, selectMemeStatus} from "./memesSlice";
+import {Alert, AlertTitle} from '@material-ui/lab';
+import {CircularProgress} from "@material-ui/core";
 
 export function Memes() {
-  const count = useAppSelector(selectCount);
-  const dispatch = useAppDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
+    const loadingState = useAppSelector(selectMemeStatus);
+    const error = useAppSelector(selectMemeError);
 
-  const incrementValue = Number(incrementAmount) || 0;
-
-  return (
-    <div>
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          -
-        </button>
-        <span className={styles.value}>{count}</span>
-        <button
-          className={styles.button}
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          +
-        </button>
-      </div>
-      <div className={styles.row}>
-        <input
-          className={styles.textbox}
-          aria-label="Set increment amount"
-          value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value)}
-        />
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementByAmount(incrementValue))}
-        >
-          Add Amount
-        </button>
-        <button
-          className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(incrementValue))}
-        >
-          Add Async
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
-        >
-          Add If Odd
-        </button>
-      </div>
-    </div>
-  );
+    if (loadingState === 'loading') {
+        return (
+            <CircularProgress className={styles.main}/>
+        )
+    } else if (loadingState === 'failed') {
+        return (
+            <div className={styles.main}>
+                <Alert severity="error">
+                    <AlertTitle>Error</AlertTitle>
+                    {error}
+                </Alert>
+            </div>
+        )
+    }
+    return (
+        <div style={{padding: "60px"}}>
+            <div className={styles.row}>
+                <MemeThumbnails/>
+            </div>
+            <div className={styles.row}>
+                <SelectedMeme/>
+                <MemeCustomizer/>
+            </div>
+        </div>
+    );
 }

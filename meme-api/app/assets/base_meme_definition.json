@@ -1,17 +1,126 @@
 {
   "9f483da6-63d6-4370-b70c-04a59faa208d": {
     "uuid": "9f483da6-63d6-4370-b70c-04a59faa208d",
-    "name": "Logo",
+    "name": "Distracted Boyfriend",
     "enabled": true,
     "text_fields": [
       {
         "value": "",
-        "order": 0,
+        "order": 1,
+        "width": 0.3,
+        "height": 0.1,
+        "distance_to_left": 0.1,
+        "distance_to_bottom": 0.5,
+        "rotation": 0,
+        "text_style": "shadowed"
+      },
+      {
+        "value": "",
+        "order": 2,
+        "width": 0.3,
+        "height": 0.1,
+        "distance_to_left": 0.43,
+        "distance_to_bottom": 0.65,
+        "rotation": 0,
+        "text_style": "shadowed"
+      },
+      {
+        "value": "",
+        "order": 3,
+        "width": 0.3,
+        "height": 0.1,
+        "distance_to_left": 0.75,
+        "distance_to_bottom": 0.6,
+        "rotation": 0,
+        "text_style": "shadowed"
+      }
+    ]
+  },
+  "0ee29ee6-a09a-4b65-b0f2-bd37395b8a4e": {
+    "uuid": "0ee29ee6-a09a-4b65-b0f2-bd37395b8a4e",
+    "name": "Drake Hotline Bling",
+    "enabled": true,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 1,
+        "width": 0.45,
+        "height": 0.3,
+        "distance_to_left": 0.65,
+        "distance_to_bottom": 0.75,
+        "rotation": 0,
+        "text_style": "normal"
+      },
+      {
+        "value": "",
+        "order": 2,
+        "width": 0.45,
+        "height": 0.3,
+        "distance_to_left": 0.65,
+        "distance_to_bottom": 0.3,
+        "rotation": 0,
+        "text_style": "normal"
+      }
+    ]
+  },
+  "880528c7-52bf-4d08-b902-348bc23a9933": {
+    "uuid": "880528c7-52bf-4d08-b902-348bc23a9933",
+    "name": "Gru's Plan",
+    "enabled": false,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 1,
         "width": 1,
         "height": 1,
         "distance_to_left": 1,
-        "distance_to_right": 1,
-        "rotation": 1
+        "distance_to_bottom": 1,
+        "rotation": 1,
+        "text_style": "normal"
+      }
+    ]
+  },
+  "52ca0b49-d9eb-45e6-81d5-a06d4214fbfa": {
+    "uuid": "52ca0b49-d9eb-45e6-81d5-a06d4214fbfa",
+    "name": "Expanding Brain",
+    "enabled": false,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 1,
+        "width": 1,
+        "height": 1,
+        "distance_to_left": 1,
+        "distance_to_bottom": 1,
+        "rotation": 1,
+        "text_style": "normal"
+      }
+    ]
+  },
+  "0b1b9dc6-4ca4-4045-a113-f3ab83707ee3": {
+    "uuid": "0b1b9dc6-4ca4-4045-a113-f3ab83707ee3",
+    "name": "Batman Slapping Robin",
+    "enabled": true,
+    "text_fields": [
+      {
+        "value": "",
+        "order": 1,
+        "width": 0.4,
+        "height": 0.2,
+        "distance_to_left": 0.1,
+        "distance_to_bottom": 0.97,
+        "rotation": 0,
+        "text_style": "normal"
+      },
+      {
+        "value": "",
+        "order": 2,
+        "width": 0.4,
+        "height": 0.2,
+        "distance_to_left": 0.6,
+        "distance_to_bottom": 0.97,
+        "rotation": 0,
+        "text_style": "normal"
       }
     ]
   }
