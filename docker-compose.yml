@@ -8,13 +8,18 @@ services:
       - .env
     build:
       context: ./meme-api
-      args:
-        INSTALL_DEV: ${INSTALL_DEV-true}
     ports:
       - target: 8080
         published: 8080
         protocol: tcp
         x-aws-protocol: http
+    deploy:
+      update_config:
+        order: start-first
+      x-aws-autoscaling:
+        min: 1
+        max: 3
+        cpu: 75
 
   meme-react-frontend:
     image: 'ghcr.io/fergusdixon/${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}'
@@ -24,6 +29,13 @@ services:
       - meme-api
     build:
       context: ./meme-react-frontend
+    deploy:
+      update_config:
+        order: start-first
+      x-aws-autoscaling:
+        min: 1
+        max: 3
+        cpu: 75
 
 x-aws-cloudformation:
   Resources:
