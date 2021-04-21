@@ -8,6 +8,8 @@ services:
       - .env
     build:
       context: ./meme-api
+    depends_on:
+      - mongodb
     ports:
       - target: 8080
         published: 8080
@@ -47,6 +49,14 @@ services:
           cpus: '0.25'
           memory: 0.5Gb
 
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_USER-root}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_PASS?No Mongo password set}"
+    volumes:
+      - mongodb_data_container:/data/db
+
 x-aws-cloudformation:
   Resources:
     MemeapiTCP8080TargetGroup:
@@ -54,3 +64,6 @@ x-aws-cloudformation:
         HealthCheckPath: /api/v1/memes
         Matcher:
           HttpCode: 200
+
+volumes:
+  mongodb_data_container:

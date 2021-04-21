@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "Meme API"
     BASE_MEME_DEFINITION_FILE: str = "app/assets/base_meme_definition.json"
 
+    MONGO_USER: str
+    MONGO_PASS: str
+
     class Config:
         case_sensitive = True
 
