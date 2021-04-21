@@ -134,3 +134,6 @@ yarn test --coverage --watchAll
 #### Monitoring
 
 Uses a manually created Cloudwatch dashboard with alarams for monitoring:
+
+![Screenshot 2021-04-21 at 17 51 28](https://user-images.githubusercontent.com/25303488/115584665-3c614300-a2cb-11eb-97a6-ce868a375780.png)
+
