@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  meme-api:
+    volumes:
+      - ./meme-api:/app
+    command: /start-reload.sh
+    build:
+      args:
+        INSTALL_DEV: ${INSTALL_DEV-true}
