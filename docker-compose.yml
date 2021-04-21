@@ -14,12 +14,17 @@ services:
         protocol: tcp
         x-aws-protocol: http
     deploy:
+      replicas: 1
       update_config:
         order: start-first
       x-aws-autoscaling:
         min: 1
         max: 3
         cpu: 75
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 0.5Gb
 
   meme-react-frontend:
     image: 'ghcr.io/fergusdixon/${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}'
@@ -30,12 +35,17 @@ services:
     build:
       context: ./meme-react-frontend
     deploy:
+      replicas: 1
       update_config:
         order: start-first
       x-aws-autoscaling:
         min: 1
         max: 3
         cpu: 75
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 0.5Gb
 
 x-aws-cloudformation:
   Resources:
