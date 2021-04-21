@@ -16,6 +16,7 @@
 .form > * {
     margin: 5px;
     width: 25ch;
+    max-width: 80%;
 }
 
 .main {
