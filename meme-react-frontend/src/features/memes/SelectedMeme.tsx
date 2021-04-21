@@ -3,50 +3,18 @@ import React from 'react';
 import {useAppSelector} from '../../app/hooks';
 import {selectChosenMeme} from './memesSlice';
 import {config} from "../../constants";
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        memeContainer: {
-            maxWidth: '100%',
-            width: '100%',
-            height: 'auto',
-            paddingLeft: '20px',
-            paddingRight: '20px',
-        },
-        outerWrapper: {
-            position: "relative",
-            width: "50%",
-            maxWidth: "700px",
-        },
-        shadowedText: {
-            position: "absolute",
-            fontWeight: "bold",
-            textShadow: "2px 2px 3px black",
-            color: 'white',
-            textTransform: 'uppercase',
-            wordWrap: "break-word",
-        },
-        normalText: {
-            position: "absolute",
-            fontWeight: "normal",
-            wordWrap: "break-word",
-        }
-    }),
-);
-
+import styles from './Memes.module.css';
 
 export function SelectedMeme() {
     const meme = useAppSelector(selectChosenMeme);
-    const classes = useStyles();
 
     if (meme) {
         return (
-            <div className={classes.outerWrapper}>
-                <img className={classes.memeContainer} src={config.API_URL + meme.high_res_path} alt={meme.name}/>
+            <div className={styles.outerwrapper}>
+                <img className={styles.memecontainer} src={config.API_URL + meme.high_res_path} alt={meme.name}/>
                 {meme.text_fields.map((textField) => (
                     <div key={textField.order + meme.uuid}
-                         className={textField.text_style === "shadowed" ? classes.shadowedText : classes.normalText}
+                         className={textField.text_style === "shadowed" ? styles.shadowedtext : styles.normaltext}
                          style={
                              {
                                  left: `${(textField.distance_to_left) * 100}%`,

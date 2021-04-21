@@ -83,10 +83,12 @@ export const memesSlice = createSlice({
         builder
             .addCase(fetchMemesFromAPI.pending, (state) => {
                 state.status = 'loading';
+                state.error = null;
             })
             .addCase(fetchMemesFromAPI.fulfilled, (state, action) => {
                 state.status = 'idle';
                 state.baseMemes = action.payload;
+                state.error = null;
             })
             .addCase(fetchMemesFromAPI.rejected, (state, action) => {
                 state.status = 'failed';

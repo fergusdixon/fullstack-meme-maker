@@ -7,33 +7,19 @@ import {MemeCustomizer} from "./MemeCustomizer";
 import {useAppSelector} from "../../app/hooks";
 import {selectMemeError, selectMemeStatus} from "./memesSlice";
 import {Alert, AlertTitle} from '@material-ui/lab';
-import {CircularProgress, makeStyles} from "@material-ui/core";
-import {createStyles, Theme} from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            width: '20%',
-            padding: '10%',
-            '& > * + *': {
-                marginTop: theme.spacing(2),
-            },
-        },
-    }),
-);
+import {CircularProgress} from "@material-ui/core";
 
 export function Memes() {
     const loadingState = useAppSelector(selectMemeStatus);
     const error = useAppSelector(selectMemeError);
-    const classes = useStyles();
 
     if (loadingState === 'loading') {
         return (
-            <CircularProgress className={classes.root}/>
+            <CircularProgress className={styles.main}/>
         )
     } else if (loadingState === 'failed') {
         return (
-            <div className={classes.root}>
+            <div className={styles.main}>
                 <Alert severity="error">
                     <AlertTitle>Error</AlertTitle>
                     {error}
